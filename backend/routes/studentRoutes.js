@@ -74,7 +74,6 @@ async function getStudent(req, res, next) {
   // In this case, we want to continue processing the request to the next middleware function (getStudent) after getting the student by ID. So, we call next() here.
   // Without calling next(), the request will stop at this middleware function and not be processed by the next middleware function.
   // In a real-world application, you might want to add more functionality to this middleware function, such as checking if the user is authenticated before allowing access to certain routes. In that case, you would not want to call next() in this middleware function.
-
   next();
 }
 // purpose of module.exports?
