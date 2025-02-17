@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 const Home = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <h1>Welcome to the Student Management System</h1>
     </div>
   );

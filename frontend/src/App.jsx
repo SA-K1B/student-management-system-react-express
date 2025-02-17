@@ -4,10 +4,13 @@ import Home from './pages/Home';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
 import './App.css';
-
+// import Navbar component
+import Navbar from './components/Navbar';
 const App = () => {
   return (
     <Router>
+      {/* // import Navbar component */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUpPage />} />

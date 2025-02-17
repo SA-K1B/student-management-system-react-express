@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosInstance'; // Import the Axios instance
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -10,7 +10,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/students', { name, age, grade, password });
+      const response = await axiosInstance.post('/api/auth/signup', { name, age, grade, password });
       console.log('User signed up:', response.data);
     } catch (error) {
       console.error('Error signing up:', error);
@@ -18,13 +18,13 @@ const SignUp = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-container">
       <h2>Sign Up</h2>
-      <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
-      <input type="number" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} required />
-      <input type="text" placeholder="Grade" value={grade} onChange={(e) => setGrade(e.target.value)} required />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-      <button type="submit">Sign Up</button>
+      <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required className="form-input" />
+      <input type="number" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} required className="form-input" />
+      <input type="text" placeholder="Grade" value={grade} onChange={(e) => setGrade(e.target.value)} required className="form-input" />
+      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required className="form-input" />
+      <button type="submit" className="form-button">Sign Up</button>
     </form>
   );
 };
